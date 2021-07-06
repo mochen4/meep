@@ -262,7 +262,7 @@ class FourierFields(ObjectiveQuantity):
                 for yi in range(y_dim):
                     for xi in range(x_dim):
                         '''We only need to add a current source if the
-                        jacobian is nonzero for all frequencies at 
+                        jacobian is nonzero for all frequencies at
                         that particular point. Otherwise, the fitting
                         algorithm is going to fail.
                         '''
@@ -313,6 +313,7 @@ class Near2FarFields(ObjectiveQuantity):
         return self._monitor
 
     def place_adjoint_source(self, dJ):
+        dt = self.sim.fields.dt
         time_src = self._create_time_profile()
         sources = []
         if dJ.ndim == 4:
