@@ -1289,6 +1289,8 @@ class Simulation(object):
                 return 2
             else:
                 return 3
+        elif self.dimensions == 2 and self.is_cylindrical:
+            return mp.CYLINDRICAL
         return self.dimensions
 
     def _get_valid_material_frequencies(self):
